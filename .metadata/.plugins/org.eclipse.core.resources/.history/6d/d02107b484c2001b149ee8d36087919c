@@ -1,0 +1,43 @@
+package app0601.xml.data.table;
+
+import java.util.Vector;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+public class MountainHandler extends DefaultHandler{
+	Vector<Mountain> mtList; // 산 VO를 여러개 담게될 컬렉션!!
+	
+	boolean isItems;
+	boolean isItem;
+	boolean isMntiadd;
+	boolean isMntidetails;
+	boolean isMntihigh;
+	boolean isMnrilistno;
+	boolean isMntiname;
+	
+	Mountain mountain; // vo준비
+	
+	public void startElement(String uri, String localName, String tag, Attributes attributes) throws SAXException {
+		if(tag.equals("isItems")) {
+			
+		}else if() {
+			
+		}else if() {
+			
+		}
+	}
+
+	public void characters(char[] ch, int start, int length) throws SAXException {
+
+	}
+
+	public void endElement(String uri, String localName, String tag) throws SAXException {
+	}
+	
+
+	public void endDocument() throws SAXException {
+
+	}
+}

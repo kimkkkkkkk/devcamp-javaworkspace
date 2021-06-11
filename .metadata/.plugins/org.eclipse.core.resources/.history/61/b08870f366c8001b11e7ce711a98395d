@@ -1,0 +1,39 @@
+package JavaProject.tour.message;
+
+import java.util.Vector;
+
+import javax.swing.table.AbstractTableModel;
+
+//Member 테이블의 전용 TableModel (데이터를 연동하는 모델 객체)
+public class SubMemberModel extends AbstractTableModel{
+	Vector<SubMember> data = new Vector<SubMember>();
+	Vector<String> column = new Vector<String>();
+	
+	public int getRowCount() {
+		return data.size(); // 1차원 백터의 사이즈
+	}
+	public int getColumnCount() {
+
+		return column.size(); 
+	}
+	public String getColumnName(int col) {
+		return column.get(col);
+	}
+	public Object getValueAt(int row, int col) {
+		String value =null;
+		SubMember member = data.get(row);
+		if(col==0) {
+			value=Integer.toString(member.getMember_id());
+		}else if(col==1) {
+			value = member.getUser_id();
+		}else if(col==2) {
+			value = member.getPassword();
+		}else if(col==3) {
+			value = member.getName();
+		}else if(col==4) {
+			value = member.getRegdate();
+		}
+		return value;
+	}
+	
+}

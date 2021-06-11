@@ -1,0 +1,103 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+public class RentCar extends JFrame{
+	
+	//타이틀
+	JPanel t_title;
+	JLabel title;
+	
+	//도시 
+	JPanel center;
+	JPanel search; //검색 컴포넌트들 올려놓을 패널 
+	Choice city;//검색 카테고리 선택
+	
+	//픽업 및 반납장소
+	JPanel p_center;
+	JPanel p_search; //검색 컴포넌트들 올려놓을 패널 
+	Choice ch_city;//검색 카테고리 선택
+	
+	JTextField t_keyword;//검색어 입력
+	JButton bt_search; 
+	
+	
+
+	
+	
+	public RentCar() {
+		
+		//센터 영역 생성 
+		t_title = new JPanel();
+		title = new JLabel("렌터카 예매");
+		
+		center = new JPanel();
+		search = new JPanel();
+		city = new Choice();
+		
+		p_center = new JPanel();
+		p_search = new JPanel();
+		ch_city = new Choice();
+		
+		//도시검색 카테고리 등록
+		city.add("서울");
+		city.add("부산");
+		city.add("인천");
+		city.add("제주");
+		
+		//픽업 및 반납 카테고리 등록
+		ch_city.add("김포공항");
+		ch_city.add("인천공항");
+		ch_city.add("서울역");
+		ch_city.add("잠실역");
+		
+		t_keyword = new JTextField();
+		bt_search = new JButton("search");
+		
+		Dimension d = new Dimension(180,30);
+		city.setPreferredSize(d);
+		search.add(city);
+
+		
+		center.setLayout(new BorderLayout());
+		center.add(search, BorderLayout.NORTH);
+		
+		
+		
+		ch_city.setPreferredSize(d);
+		t_keyword.setPreferredSize(new Dimension(200, 30));
+		p_search.add(ch_city);
+		p_search.add(t_keyword);
+		p_search.add(bt_search);
+		
+		p_center.setLayout(new BorderLayout());
+		p_center.add(p_search, BorderLayout.NORTH);
+		
+		
+		add(center);
+		add(p_center);
+		
+		setBounds(300,100,1300,500);
+		setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new RentCar();
+
+	}
+
+}

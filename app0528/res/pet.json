@@ -1,0 +1,16 @@
+{
+		"name":"scott",
+		"age":"22",
+		"pet" : [
+					{
+						"type":"dog",
+						"gender":"girl",
+						"name":"해삐"
+					},
+					{
+						"type":"cat",
+						"gender":"boy",
+						"name":"까미"
+					}
+		]
+}

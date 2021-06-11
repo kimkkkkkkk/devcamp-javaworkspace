@@ -1,0 +1,136 @@
+package JavaProject.tour;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+
+import JavaProject.tour.TourApp.ShowAction;
+import JavaProject.tour.hotel.HotelMain;
+
+public class Intro extends JFrame{
+   
+	JMenuBar bar;
+	JMenu[] menu;
+	String[] menu_title= {"place","room","transport","community"};
+	JMenuItem[][] itemArray;
+	String[][] item_title={{"intro","food"},{"hotel","others"},{"rentcar","subway"},{"chat","customer"}};
+	LoginForm loginform;
+	HotelMain hotelmain;
+	ShowAction showaction;
+	
+   JPanel p_north;
+   JPanel p_center;
+   JScrollPane scroll;
+   
+   JButton hotelButton;
+   JButton rentButton;
+   JButton chatConsult;   
+   
+   //JLabel reviewTitle;
+   JTable table; 
+
+   public Intro() {
+      
+	   bar=new JMenuBar();
+		menu=new JMenu[4];
+		itemArray=new JMenuItem[4][2];
+       
+		for(int i=0;i<menu_title.length;i++) {
+			menu[i]=new JMenu(menu_title[i]);
+			bar.add(menu[i]);
+		}
+		
+		for(int a=0;a<item_title.length;a++) {
+			for(int j=0;j<item_title[a].length;j++) {
+				
+				itemArray[a][j]=new JMenuItem(item_title[a][j]);
+				menu[a].add(itemArray[a][j]);
+				itemArray[a][j].addActionListener(new ShowAction());	
+			}
+		}
+		setJMenuBar(bar);
+	   
+	   
+	   
+	   
+      p_north = new JPanel();
+      p_center = new JPanel();
+      scroll = new JScrollPane(table);
+      
+      hotelButton = new JButton("숙소 버튼");
+      rentButton = new JButton("렌트 버튼");
+      chatConsult = new JButton("채팅 상담");
+      
+     // reviewTitle = new JLabel();
+      //reviewTitle.setText("리뷰 목록");
+      table = new JTable(100,100);
+      
+      p_north.add(hotelButton);
+      p_north.add(rentButton);
+      p_north.add(chatConsult);
+      
+      //add(reviewTitle);
+      p_center.add(table);
+      
+      add(scroll);
+      
+      setLayout(new BorderLayout());
+      add(p_north, BorderLayout.EAST);
+      add(p_center, BorderLayout.CENTER);
+      
+     // reviewTitle.setVerticalAlignment(SwingConstants.TOP);
+     // reviewTitle.setHorizontalAlignment(SwingConstants.LEFT);
+      //reviewTitle.setLocation(1000, 100);
+      
+      setVisible(true);
+      setBounds(400,200,1300,500);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      
+   }
+   
+   class ShowAction implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+
+					String cmd=e.getActionCommand();
+					switch(cmd) {
+					case "intro":
+						new TourApp();
+						break;
+					case "food":
+						new TourApp();
+						break;
+					case "hotel":
+						new HotelMain();
+						break;
+					case "others":
+						new TourApp();
+						break;
+					case "rentcar":
+						new TourApp();
+						break;
+					case "subway":
+						new TourApp();
+						break;
+					case "chat":
+						new TourApp();
+						break;
+					case "customer":
+						new TourApp();
+						break;
+					}
+			}
+		}
+   public static void main(String[] args) {
+      new Intro();
+   }
+}

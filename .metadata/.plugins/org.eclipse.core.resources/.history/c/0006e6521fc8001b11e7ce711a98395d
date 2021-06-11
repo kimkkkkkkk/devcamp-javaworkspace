@@ -1,0 +1,64 @@
+package JavaProject.tour;
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+
+public class Intro extends JFrame{
+   
+   JPanel p_north;
+   JPanel p_center;
+   JScrollPane scroll;
+   
+   JButton hotelButton;
+   JButton rentButton;
+   JButton chatConsult;   
+   
+   JLabel reviewTitle;
+   JTable table; 
+
+   public Intro() {
+      
+      p_north = new JPanel();
+      p_center = new JPanel();
+      scroll = new JScrollPane(table);
+      
+      hotelButton = new JButton("숙소 버튼");
+      rentButton = new JButton("렌트 버튼");
+      chatConsult = new JButton("채팅 상담");
+      
+      reviewTitle = new JLabel();
+      reviewTitle.setText("리뷰 목록");
+      table = new JTable(5,5);
+      
+      p_north.add(hotelButton);
+      p_north.add(rentButton);
+      p_north.add(chatConsult);
+      
+      add(reviewTitle);
+      p_center.add(table);
+      
+      add(scroll);
+      
+      setLayout(new BorderLayout());
+      add(p_north, BorderLayout.NORTH);
+      add(p_center, BorderLayout.CENTER);
+      
+      reviewTitle.setVerticalAlignment(SwingConstants.TOP);
+      reviewTitle.setHorizontalAlignment(SwingConstants.LEFT);
+      //reviewTitle.setLocation(1000, 100);
+      
+      setVisible(true);
+      setBounds(400,200,1300,500);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      
+   }
+   public static void main(String[] args) {
+      new Intro();
+   }
+}

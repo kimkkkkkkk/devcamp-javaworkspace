@@ -1,0 +1,33 @@
+package JavaProject.tour.imagetest;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Border extends JFrame{
+
+	
+	public Border() {
+		setTitle("이미지 그리기 연습");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		setLayout(new BorderLayout());
+		
+		add(new JButton("북"), BorderLayout.NORTH);
+		add(new JButton("센터"), BorderLayout.CENTER);
+		add(new JButton("남"), BorderLayout.SOUTH);
+		add(new JButton("동"), BorderLayout.EAST);
+		add(new JButton("서"), BorderLayout.WEST);
+		
+		
+		setSize(1300,500);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		 new Border();
+
+	}
+
+}

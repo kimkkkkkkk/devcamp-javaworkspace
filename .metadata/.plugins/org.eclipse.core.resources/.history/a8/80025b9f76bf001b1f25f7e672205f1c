@@ -1,0 +1,10 @@
+package app0528.json.test;
+
+public class JsonBasic4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

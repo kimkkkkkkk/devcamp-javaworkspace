@@ -1,0 +1,142 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import com.minssam.shoppingapp.config.ConfigMain;
+import com.minssam.shoppingapp.customer.CustomerMain;
+import com.minssam.shoppingapp.main.CustomButton;
+import com.minssam.shoppingapp.member.MemberMain;
+import com.minssam.shoppingapp.order.OrderMain;
+import com.minssam.shoppingapp.product.ProductMain;
+
+import JavaProject.tour.JoinForm;
+import JavaProject.tour.LoginForm;
+import sun.jvm.hotspot.debugger.Page;
+
+
+
+public class RentCar extends JFrame{
+	
+	
+	JPanel r_title;
+	JLabel re_title;
+	
+	
+	JPanel c_city;
+	JLabel c_selected;
+	Choice city;
+	
+	JPanel p_pick;
+	JLabel pick_up;
+	Choice pick;
+	
+	JPanel p_north;
+	String[] menu_title= {"경차","준중형차","중형차","승합차","스포츠카","SUV"};
+	JButton[] bt_menu= new JButton[menu_title.length];
+	
+	public RentCar() {
+		
+		//생성
+		r_title = new JPanel();
+		re_title = new JLabel("렌터카 예매");
+	
+		c_city = new JPanel();
+		c_selected = new JLabel("도시");
+		city = new Choice();
+
+		city.add("서울");
+		city.add("경기");
+		city.add("부산");
+		city.add("제주");
+		city.add("인천");
+		
+		p_pick = new JPanel();
+		pick_up = new JLabel("픽업");
+		pick = new Choice();
+
+		pick.add("서울");
+		pick.add("경기");
+		pick.add("부산");
+		pick.add("제주");
+		pick.add("인천");
+		
+		
+		p_north = new JPanel();
+		for(int i=0;i<menu_title.length;i++) {
+			bt_menu[i] = new CustomButton(menu_title[i]);
+			bt_menu[i].setId(i); // 반복문의 i를 각 버튼의 식별 id로 할당!!
+		}
+		p_center = new JPanel();
+		pages[0] = new ProductMain(this); //상품관리
+		pages[1] = new MemberMain(this); //회원관리
+		pages[2] = new OrderMain(this);//주문관리
+		pages[3] = new CustomerMain(this);//고객센터
+		pages[4] = new LoginForm(this);//로그인
+		pages[5] = new ConfigMain(this);//환경설정
+		pages[6] = new JoinForm(this);//회원가입폼
+		
+		
+		//스타일
+		
+		
+		//조립
+		for(JButton bt : bt_menu) { //개선된 포문,improved for loop : 주로 집합데이터 형식을 대상으로 한 loop
+			p_north.add(bt);	
+		}
+		add(p_north,BorderLayout.NORTH);
+		for(Page p : pages) {
+			p_center.add(p);
+		}
+		add(p_center);
+
+		
+		//스타일
+		
+		setLayout(new FlowLayout());
+		re_title.setFont(new Font("돋움", Font.BOLD,24));
+		r_title.setPreferredSize(new Dimension(450, 50));
+		
+		c_selected.setPreferredSize(new Dimension(30,30));
+		city.setPreferredSize(new Dimension(50, 30));
+		
+		pick_up.setPreferredSize(new Dimension(30,30));
+		pick.setPreferredSize(new Dimension(50, 30));
+		
+		//조립
+		r_title.add(re_title);
+		add(r_title);
+		c_city.add(c_selected);
+		c_city.add(city);
+		add(c_city);
+		
+		
+		p_pick.add(pick_up);
+		p_pick.add(pick);
+		add(pick_up);
+		
+
+
+		
+		
+		setBounds(300,100,1300,500);
+	    setVisible(true);
+		
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		new RentCar();
+
+	}
+
+}

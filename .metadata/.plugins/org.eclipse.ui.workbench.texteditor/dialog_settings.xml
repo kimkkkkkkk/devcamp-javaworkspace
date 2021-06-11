@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="Table"/>
+		<list key="findhistory">
+			<item value="table"/>
+			<item value="getSelectedRow"/>
+			<item value="getValueAt"/>
+			<item value="getvauleapp"/>
+			<item value="updateProduct()"/>
+			<item value="product_id"/>
+			<item value="message_id"/>
+			<item value="getM"/>
+			<item value="updateProduct"/>
+			<item value="getApp"/>
+			<item value=" t_title"/>
+			<item value="model"/>
+			<item value="la_time"/>
+			<item value="showaction"/>
+			<item value="category"/>
+		</list>
+		<list key="replacehistory">
+			<item value="city"/>
+			<item value=""/>
+			<item value="bt_del"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1226"/>
+		<item key="DIALOG_Y_ORIGIN" value="186"/>
+		<item key="DIALOG_WIDTH" value="340"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="211"/>
+		<item key="DIALOG_Y_ORIGIN" value="357"/>
+	</section>
+</section>

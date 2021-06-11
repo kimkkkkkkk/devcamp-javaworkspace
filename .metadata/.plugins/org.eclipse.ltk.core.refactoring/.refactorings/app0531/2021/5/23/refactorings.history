@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;XMLTable.java&apos; to &apos;app0531/src/app0531.xml.jtable&apos;&#x0D;&#x0A;- Original project: &apos;app0531&apos;&#x0D;&#x0A;- Destination element: &apos;app0531/src/app0531.xml.jtable&apos;&#x0D;&#x0A;- Original element: &apos;app0531.xml.XMLTable.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;app0531.xml.jtable" element1="/src&lt;app0531.xml{XMLTable.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1622448305496" units="1" version="1.0"/>
+</session>

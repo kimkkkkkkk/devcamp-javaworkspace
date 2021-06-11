@@ -1,0 +1,23 @@
+package JavaProject.tour.car.domain;
+
+public class car_data {
+	private int cartype_id;
+	private String car_type;
+	
+	
+	public int getCartype_id() {
+		return cartype_id;
+	}
+	public void setCartype_id(int cartype_id) {
+		this.cartype_id = cartype_id;
+	}
+	public String getCar_type() {
+		return car_type;
+	}
+	public void setCar_type(String car_type) {
+		this.car_type = car_type;
+	}
+	
+	
+	
+}

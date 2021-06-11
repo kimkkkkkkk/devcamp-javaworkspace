@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;app0603.AESTest.java&apos; to &apos;AES256Util.java&apos;&#x0D;&#x0A;- Original project: &apos;app0603&apos;&#x0D;&#x0A;- Original element: &apos;app0603.AESTest.java&apos;&#x0D;&#x0A;- Renamed element: &apos;app0603.AES256Util.java&apos;" description="Rename compilation unit &apos;AESTest.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;app0603{AESTest.java" name="AES256Util.java" references="false" stamp="1622684014863" version="1.0"/>
+</session>

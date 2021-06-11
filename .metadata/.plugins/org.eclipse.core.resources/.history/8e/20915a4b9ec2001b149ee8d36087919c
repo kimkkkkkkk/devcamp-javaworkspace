@@ -1,0 +1,41 @@
+package app0601.json.chat;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+
+//모든 접속클라이언트 마다 1:1 대응하여, 서버측에 생성되는 대화용 클라이언트 쓰레드
+// 따라서 클ㄹ라이언트가 접속을 끊으면, 서버측에 대응되는 이 객체 또한 소멸되어야 한다
+public class ServerMsgThread extends Thread{
+ //thread를 상속받는 순간 독립적으로 움직일 수 있는 상태
+	
+	Socket socket;
+	BufferedReader buffr; // 듣고
+	BufferedWriter buffw; // 말하기
+	
+	public ServerMsgThread() {
+		//new가 아니라 전달받아야 함
+		this.socket =socket;
+		try {
+			buffr = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			buffw= new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		//듣고
+		public void listen() {
+			
+		}
+		//말하고
+		
+		public void send() {
+			
+		}
+		
+	}
+}

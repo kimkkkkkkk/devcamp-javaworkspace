@@ -1,0 +1,13 @@
+package JavaProject.tour.car.domain;
+
+public class CarDetail {
+
+	private int cardetail_id;
+	private int cardata_id;
+	private String cardetail_nam;
+	
+	
+	
+	
+	
+}

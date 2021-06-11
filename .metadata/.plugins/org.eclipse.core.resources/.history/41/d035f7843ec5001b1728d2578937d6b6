@@ -1,0 +1,231 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+
+
+public class RentCar extends JFrame{
+   
+   JPanel p_east,p_westm,p_center;
+
+   JPanel p_search; //검색 패널
+   JTextField t_keyword;//검색어 입력
+   JButton bt_search; 
+   
+   JTable table; // 테이블 나올 곳
+   JScrollPane t_scroll;
+
+   //동쪽
+   Choice car; //차량선택 
+   Choice option; // 차량 종류
+   JPanel empty; // 띄어쓰기
+   JLabel c_option; //차량옵션 라벨 
+   
+   JPanel empty3;
+   JLabel la_pick; //픽업장소
+   JTextField pick;
+   JLabel la_return; //반납장소
+   JTextField r_return;
+   JLabel la_time; //이용시간
+   JTextField time;
+   JLabel la_price; //가격
+   JTextField price;
+   
+   JPanel empty4;
+   JLabel driver;
+   
+   JTextArea detail; //문의내용
+   JScrollPane scroll;
+   
+   
+   JPanel bt_empty;
+   JButton bt_charge;
+   
+
+   public  RentCar() {
+   
+	  //상단바 & 테이블
+      p_center= new JPanel();
+      p_search = new JPanel(); //검색패널
+      table=new JTable();
+      t_scroll=new JScrollPane(table);
+      t_keyword = new JTextField(); //검색창
+      bt_search = new JButton("search"); //검색버튼
+   
+      //동쪽 영역 (차량정보 등)
+      p_east= new JPanel();
+      car = new Choice();
+      
+      car.add("---차량 선택----");
+      car.add("경차");
+      car.add("중소형차");
+      car.add("중형차");
+      car.add("대형차");
+      car.add("suv");
+      car.add("스포츠카");
+      
+      option = new Choice();
+      
+      option.add("---서비스 옵션----");
+      option.add("모닝");
+      option.add("레이");
+      option.add("스파크");
+      option.add("아반떼");
+      option.add("k3");
+      option.add("예약");
+      
+      empty = new JPanel();
+      c_option = new JLabel("차량 예약 정보");
+
+      
+
+      
+      empty3 = new JPanel();
+      la_pick = new JLabel("픽업장소");
+      pick = new JTextField(25);
+      la_return = new JLabel("반납장소");
+      r_return = new JTextField(25);
+      la_time = new JLabel("이용시간");
+      time = new JTextField(25);
+      la_price = new JLabel("가격");
+      price = new JTextField(25);
+      
+      //요청사항
+      empty4 = new JPanel();
+      driver =new JLabel("고객 요청 사항");
+      detail = new JTextArea("--요청사항--");
+      scroll = new JScrollPane(detail);
+      
+      
+      bt_empty = new JPanel();
+      bt_charge = new JButton("결제하기");
+      
+      
+      
+      
+      //스타일 및 레이아웃 
+      setLayout(new BorderLayout());
+      t_scroll.setPreferredSize(new Dimension(790,400));
+      
+
+      //상단
+      p_center.setPreferredSize(new Dimension(30, 30));
+      detail.setPreferredSize(new Dimension(380, 80));
+      
+      //정보
+      p_east.setLayout(new FlowLayout());
+      p_east.setPreferredSize(new Dimension(400, 500));
+     
+      c_option.setPreferredSize(new Dimension(100,60));
+      c_option.setFont(new Font("Serif", Font.BOLD, 25));
+      scroll.setPreferredSize(new Dimension(180, 180));
+      //empty.setPreferredSize(new Dimension(70,30));
+   
+      driver.setPreferredSize(new Dimension(100,10));
+      pick.setPreferredSize(new Dimension(200,30));
+      r_return.setPreferredSize(new Dimension(200,30));
+      time.setPreferredSize(new Dimension(200,30));
+      price.setPreferredSize(new Dimension(200,30));
+      
+      Dimension d = new Dimension(380,30); //공통 크기
+      car.setPreferredSize(d);
+      option.setPreferredSize(d);
+      
+      Dimension a = new Dimension(380,7);
+      empty3.setPreferredSize(a);
+      empty4.setPreferredSize(a);
+      
+      
+      Dimension z= new Dimension(120,30);
+      la_pick.setPreferredSize(z);
+      la_return.setPreferredSize(z);
+      la_time.setPreferredSize(z);
+      la_price.setPreferredSize(z);
+      
+      bt_empty.setPreferredSize(new Dimension(380, 4));
+      t_keyword.setPreferredSize(new Dimension(300, 30));
+      p_center.setLayout(new FlowLayout());
+      
+   
+      p_center.add(p_search);
+      p_search.add(t_keyword);
+      p_search.add(bt_search);
+     
+      p_center.add(t_scroll);
+      
+      p_east.add(car);
+      p_east.add(option);
+      p_east.add(empty);
+      p_east.add(c_option);
+    
+
+      p_east.add(empty3);
+      
+      p_east.add(la_pick);
+      p_east.add(pick);
+      p_east.add(la_return);
+      p_east.add(r_return);
+      p_east.add(la_time);
+      p_east.add(time);
+      p_east.add(la_price);
+      p_east.add(price);
+      
+      
+      p_east.add(empty4);
+      p_east.add(driver);
+ 
+      
+      p_east.add(detail);
+      p_east.add(bt_empty);
+      p_east.add(bt_charge);
+      add(p_center, BorderLayout.NORTH);
+      add(p_east, BorderLayout.EAST);
+      add(p_center);
+   
+      setBounds(300,100,1300,500);
+      setVisible(true);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      
+      //검색하기
+      bt_search.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	});
+      
+       //결제하기
+      bt_charge.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+             
+          }
+       });
+
+   }
+   
+   
+   
+   
+
+   public static void main(String[] args) {
+      new RentCar();
+   }
+   
+
+}

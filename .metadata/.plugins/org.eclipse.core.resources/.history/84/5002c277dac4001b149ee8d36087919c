@@ -1,0 +1,183 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Choice;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+
+
+
+//상품관리 메인 페이지
+public class RentCar2 extends JFrame{
+	JPanel p_west;
+	Choice ch_top;
+	//센터관련 
+	JPanel p_center;
+	JPanel p_search; //검색 컴포넌트들 올려놓을 패널 
+	Choice ch_category;//검색 카테고리 선택
+	JTextField t_keyword;//검색어 입력
+	JButton bt_search; 
+	JButton bt_excel; // 엑셀을 이용한 일괄등록 
+	
+
+	
+	//동쪽관련
+	JPanel p_east;
+	Choice top;
+	Choice sub;
+	JTextField t_product_name2;
+	JTextField t_price2;
+	JTextField t_brand2;
+	JTextArea t_detail2;
+	JScrollPane scroll2;
+	JButton bt_web2; //웹에서 가져오기
+	JButton bt_file2; //로컬 파일에서 가져오기
+	
+	JButton bt_del;
+	
+	JFileChooser chooser;
+	Toolkit kit=Toolkit.getDefaultToolkit();
+	Image image; //등록시 미리보기에 사용할 이미지
+	Image image2; //등록시 미리보기에 사용할 이미지
+	String filename; //유저의 복사에 의해 생성된 파일명!!!
+	
+	
+	int product_id; // 현재 상세보기 중인 product의 pk
+	String del_file; // 현재 상세보기 중인 filename(삭제 대상이 될 수 있음)	
+	
+	public  RentCar2() {
+		
+		ch_top = new Choice();
+		p_west= new JPanel();
+		
+		
+		//센터 영역 생성 
+		p_center = new JPanel();
+		p_search = new JPanel();
+		ch_category = new Choice();
+		
+		//검색 카테고리 등록
+		ch_category.add("choose category");
+		ch_category.add("product_name");
+		ch_category.add("price");
+		ch_category.add("brand");
+		
+		t_keyword = new JTextField();
+		bt_search = new JButton("search");
+		bt_excel = new JButton("엑셀로 등록");
+		
+		
+		
+		//동쪽 영역 생성 
+		p_east= new JPanel();
+		top = new Choice();
+		sub = new Choice();
+		t_product_name2 = new JTextField();
+		t_price2 = new JTextField();
+		t_brand2 = new JTextField();
+		t_detail2 = new JTextArea();
+		scroll2 = new JScrollPane(t_detail2);
+		bt_web2 = new JButton("웹에서찾기");
+		bt_file2 = new JButton("파일찾기");
+		
+		
+		bt_del = new JButton("상품삭제");
+		
+		chooser = new JFileChooser("C:\\korea202102_jsworkspace\\image");
+		
+		
+		//스타일 및 레이아웃 
+		setLayout(new BorderLayout());
+		
+		Dimension d = new Dimension(220,30); //공통 크기
+		//서쪽 관련
+		p_west.setPreferredSize(new Dimension(100, 500));
+		ch_top.setPreferredSize(d);
+		p_west.add(ch_top);
+		
+		//센터관련 
+		ch_category.setPreferredSize(d);
+		t_keyword.setPreferredSize(new Dimension(300, 30));
+		p_search.add(ch_category);
+		p_search.add(t_keyword);
+		p_search.add(bt_search);
+		p_search.add(bt_excel);
+		p_center.setLayout(new BorderLayout());
+		p_center.add(p_search, BorderLayout.NORTH);//검색 패널을 북쪽에 부착!!
+
+		
+		//동쪽관련
+		p_east.setPreferredSize(new Dimension(300, 500));
+		scroll2.setPreferredSize(new Dimension(180, 180));
+		top.setPreferredSize(d);
+		sub.setPreferredSize(d);
+		t_product_name2.setPreferredSize(d);
+		t_price2.setPreferredSize(d);
+		t_brand2.setPreferredSize(d);
+	
+		
+		//서쪽조립 
+		
+		//동쪽조립
+		p_east.add(top);
+		p_east.add(sub);
+		p_east.add(t_product_name2);
+		p_east.add(t_price2);
+		p_east.add(t_brand2);
+		p_east.add(scroll2);
+		p_east.add(bt_web2);
+		p_east.add(bt_file2);
+		
+		p_east.add(bt_del);
+		
+		add(p_west, BorderLayout.WEST);//서쪽영역에 부착 
+		add(p_east, BorderLayout.EAST);//동쪽영역에 부착 
+		add(p_center);//센터영역에 부착 
+	
+		setBounds(300,100,1300,500);
+		setVisible(true);
+	}
+	
+	
+
+	public static void main(String[] args) {
+		new RentCar2();
+	}
+	
+
+}

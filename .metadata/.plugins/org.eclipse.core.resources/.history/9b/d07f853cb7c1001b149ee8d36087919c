@@ -1,0 +1,26 @@
+package app0531;
+
+import java.util.Vector;
+
+import javax.swing.table.AbstractTableModel;
+
+//notice 게시판 전용 TableModel 밖으로 뻄~
+public class NoticeModel extends AbstractTableModel{
+	//Vector의 제너릭 형태는 notice : 존재 시키기 
+	Vector<Notice> data =new Vector<Notice>(); // 기존의 데이터를 처리했던 이차원배열을 대신한 컬렉션 객체(형태)(일차원임)
+	Vector<String> column = new Vector<String>(); //기존의 컬럼명을 처리했던 일차원배열을 대신할 컬렉션 객체
+	
+	public int getRowCount() {
+		return data.size(); //VO가 담겨진 벡터의 크기
+	}
+
+	public int getColumnCount() {
+		return 6;
+	}
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		return "apple";
+	}
+
+
+	
+}

@@ -1,0 +1,62 @@
+package app0601.xml.data.table;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+public class MountainApp extends JFrame{
+	JPanel p_north;
+	JTextField t_input;
+	JButton bt_serch;
+	JTable table;
+	JScrollPane scroll;
+	
+	public MountainApp() {
+		//생성
+		p_north = new JPanel();
+		t_input = new JTextField(25);
+		bt_serch = new JButton("검색");
+		table = new JTable();
+		scroll = new JScrollPane(table);
+		
+		//스타일
+		
+		//조립
+		p_north.add(t_input);
+		p_north.add(bt_serch);
+		add(p_north, BorderLayout.NORTH);
+		add(scroll);
+		
+		
+		//이벤트
+		bt_serch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				searchData();
+			}
+		});
+		
+		//보여주기
+		setSize(800,600);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public void searchData() {
+		//1. URL을 통해 XML String 을 로드
+		
+		//2. 로드된 XML String을 해석(파싱)하여 JTable
+	}
+	
+	public static void main(String[] args) {
+		new MountainApp();
+
+	}
+
+}

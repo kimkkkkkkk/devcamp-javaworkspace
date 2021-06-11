@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;LoginForm2.java&apos; to &apos;app0601/src/app0601.json.chat&apos;&#x0D;&#x0A;- Original project: &apos;app0510&apos;&#x0D;&#x0A;- Destination element: &apos;app0601/src/app0601.json.chat&apos;&#x0D;&#x0A;- Original element: &apos;app0510.layout.LoginForm2.java&apos;" description="Copy compilation unit" destination="=app0601/src&lt;app0601.json.chat" element1="/src&lt;app0510.layout{LoginForm2.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1622531815055" units="1" version="1.0"/>
+</session>

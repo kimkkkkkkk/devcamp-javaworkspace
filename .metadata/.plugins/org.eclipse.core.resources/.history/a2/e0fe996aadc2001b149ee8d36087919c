@@ -1,0 +1,5 @@
+package app0601.json.chat;
+
+public class Member {
+
+}

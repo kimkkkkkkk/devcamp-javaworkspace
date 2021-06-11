@@ -1,0 +1,6 @@
+package JavaProject.tour.car;
+
+public class CarMember {
+
+	private String Car
+}

@@ -1,0 +1,25 @@
+package JavaProject.tour.imagetest;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.WindowConstants;
+ 
+public class TextText {
+ 
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        JFrame frm = new JFrame("프로의 BLOG"); //제목 설정
+        frm.setBounds(120, 120, 300, 200); //GUI의 위치와 사이즈 설정
+        frm.setLayout(new BorderLayout()); //BorderLayout은 동, 서, 남, 북으로 나뉘어 있는 레이아웃.
+        
+        JLabel label = new JLabel("프로의 블로그"); //텍스트를 보여줄 JLabel 생성
+        label.setHorizontalAlignment(JLabel.CENTER); //JLabel 가운데 정렬
+        
+        frm.add(label);
+        frm.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //X버튼 누를시 종료
+        frm.setVisible(true); //프레임 보여주기
+    }
+ 
+}

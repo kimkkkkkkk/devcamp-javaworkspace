@@ -1,0 +1,9 @@
+package JavaProject.tour.imagetest;
+
+public class imagedDraw {
+	
+
+	public static void main(String[] args) {
+		new imagedDraw();
+	}
+}

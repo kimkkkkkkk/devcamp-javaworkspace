@@ -1,0 +1,127 @@
+package JavaProject.tour.intro;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+
+import JavaProject.tour.DBManager;
+import JavaProject.tour.Member;
+import JavaProject.tour.TourApp;
+
+
+
+
+public class Intro extends JFrame{
+   
+   JPanel p_center;
+   JPanel p_north;
+   
+   JPanel empty;
+   JLabel reviewTitle;
+   JButton hotelButton;
+   JButton rentButton;
+   JButton chatConsult; 
+   
+   JTable table; // 테이블 나올 곳
+   JScrollPane t_scroll;
+
+   
+   
+ 
+   
+   String[] columnName = { "Type", "차 종류", "이용시간",  "이용금액"};
+   String[][] rows = {};
+
+
+  
+ 
+   
+   public  Intro() {
+  
+     //상단바 & 테이블
+      p_center= new JPanel();
+      p_north = new JPanel();  
+      empty = new JPanel();
+      reviewTitle = new JLabel("리뷰 목록");  
+      reviewTitle.setHorizontalAlignment(JLabel.HEIGHT);
+      table = new JTable(new AbstractTableModel() {
+
+ 
+      public int getRowCount() {
+         return rows.length;
+      }
+
+      public int getColumnCount() {
+         return columnName.length;
+      }
+
+      public String getColumnName(int col) { 
+         return columnName[col];
+      }
+
+      public Object getValueAt(int row, int col) {
+         return rows[row][col];
+      }
+   });
+   
+      
+      t_scroll=new JScrollPane(table);
+      hotelButton = new JButton("hotel");
+      rentButton = new JButton("rentcar");
+      chatConsult = new JButton("채팅 상담");
+      
+      
+      //스타일 및 레이아웃 
+      setLayout(new BorderLayout());
+      empty.setPreferredSize(new Dimension(70,30));
+      t_scroll.setPreferredSize(new Dimension(1000,370));
+      p_center.setPreferredSize(new Dimension(100, 20));
+      //t_keyword.setPreferredSize(new Dimension(300, 30));
+     // p_center.setLayout(new FlowLayout());
+      //p_north.setLayout(new FlowLayout());
+      p_north.add(empty);
+      p_north.add(reviewTitle);
+      //p_center.add(p_north);
+      //panel.add(t_keyword);
+      p_north.add(hotelButton);  
+      p_north.add(rentButton);  
+      p_north.add(chatConsult);  
+      p_center.add(t_scroll);
+  
+     
+     
+      add(p_north, BorderLayout.NORTH);
+      add(p_center, BorderLayout.CENTER);
+      add(p_center);
+  
+   
+      //보여주기
+      setBounds(300,100,1300,500);
+      setVisible(true);
+
+	}
+	public static void main(String[] args) {
+		new Intro();
+	}
+}

@@ -1,0 +1,47 @@
+package app0603.email;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+//메일을 주고 받으려면, 원래 메일 서버가 있어야 한다..
+//하지만 , 금일수업은 이미 무료로 제공되는 구글의 메일 서버를 이용해본다!!
+//메일 보내는 프로토콜 : SMTP, 받는 프로토콜: POP
+public class MailSendApp extends JFrame{
+	JTextField t_receiver;
+	JTextField t_sender;
+	JTextField t_title;
+	JTextArea area;
+	JButton bt;
+	
+	public MailSendApp() {
+		t_receiver = new JTextField(25);
+		t_sender = new JTextField(25);
+		t_title = new JTextField(25);
+		bt = new JButton("메일 발송");
+		area = new JTextArea();
+		
+		setLayout(new FlowLayout());
+		area.setPreferredSize(new Dimension(280,150));
+		
+		add(t_receiver);
+		add(t_sender);
+		add(t_title);
+		add(area);
+		add(bt);
+		
+		setSize(300,400);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new MailSendApp();
+	}
+	
+	
+}

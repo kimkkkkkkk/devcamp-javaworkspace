@@ -1,0 +1,13 @@
+package app0531.xml;
+
+//JSON뿐 아니라, 이 기종간 데이터 교환에 흔히 사용되는 데이터형식에는 XML도 있다.
+//XML은 태그이므로, 자바프로그램에서 태그를 다룰 줄 알아야 한다...
+//결론) XML파싱을 다룰 줄 알아야 함
+// XML 파싱의 유형 - 1.DOM방식	2.SAX방식
+public class XMLBasic1 {
+
+	public static void main(String[] args) {
+	
+	}
+
+}

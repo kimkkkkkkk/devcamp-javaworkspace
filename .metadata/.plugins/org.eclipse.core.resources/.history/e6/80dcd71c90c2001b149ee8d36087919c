@@ -1,0 +1,49 @@
+package app0601.xml.data.table;
+
+import java.util.Vector;
+
+import javax.swing.table.AbstractTableModel;
+
+public class MountainModel extends AbstractTableModel{
+	Vector <Mountain> data = new Vector <Mountain>();
+	Vector<String> column = new Vector<String>();
+
+	public MountainModel() {
+		column.add("산의 소재지");
+		column.add("상세내용");
+		column.add("산 높이");
+		column.add("산의 번호");
+		column.add("산 이름");
+	}
+	
+	public int getRowCount() {
+		return data.size();
+	}
+
+	public int getColumnCount() {
+		return column.size();
+	}
+	
+	public String getColumnName(int col) {
+		return column.get(col);
+	}
+	
+	public Object getValueAt(int row, int col) {
+		Mountain mountain = data.get(row);
+		String value= null;
+		
+		if(col==0) {
+			value=mountain.getMntiadd();
+		}else if(col==1) {
+			value=mountain.getMntidetails();
+		}else if(col==2) {
+			value =Integer.toString(mountain.getMntihigh());
+		}else if(col==3) {
+			value = Integer.toString(mountain.getMntilistnol());
+		}else if(col==4) {
+			value = mountain.getMntiname();
+		}
+		
+		return value;
+	}
+}

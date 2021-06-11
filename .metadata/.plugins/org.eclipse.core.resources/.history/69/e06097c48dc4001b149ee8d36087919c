@@ -1,0 +1,72 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+public class RentCar extends JFrame{
+	
+	
+	JPanel p_center;
+	JPanel p_search; //검색 컴포넌트들 올려놓을 패널 
+	Choice ch_category;//검색 카테고리 선택
+	JTextField t_keyword;//검색어 입력
+	JButton bt_search; 
+	JButton bt_excel; // 엑셀을 이용한 일괄등록 
+	
+	//JTable table;
+	JScrollPane scroll_table;
+	
+	
+	public RentCar() {
+		
+		//센터 영역 생성 
+		p_center = new JPanel();
+		p_search = new JPanel();
+		ch_category = new Choice();
+		
+		//검색 카테고리 등록
+		ch_category.add("choose category");
+		ch_category.add("product_name");
+		ch_category.add("price");
+		ch_category.add("brand");
+		
+		t_keyword = new JTextField();
+		bt_search = new JButton("search");
+		bt_excel = new JButton("엑셀로 등록");
+		
+		
+		ch_category.setPreferredSize(d);
+		t_keyword.setPreferredSize(new Dimension(300, 30));
+		p_search.add(ch_category);
+		p_search.add(t_keyword);
+		p_search.add(bt_search);
+		p_search.add(bt_excel);
+		p_center.setLayout(new BorderLayout());
+		p_center.add(p_search, BorderLayout.NORTH);//검색 패널을 북쪽에 부착!!
+		
+		
+		add(p_center);
+		
+		   setBounds(300,100,1300,500);
+		    setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new RentCar();
+
+	}
+
+}

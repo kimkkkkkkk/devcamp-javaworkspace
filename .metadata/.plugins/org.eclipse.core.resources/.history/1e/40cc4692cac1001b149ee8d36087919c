@@ -1,0 +1,7 @@
+package app0531;
+
+//Member 테이블의 전용 TableModel (데이터를 연동하는 모델 객체)
+public class MemberModel {
+
+	
+}

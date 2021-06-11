@@ -1,0 +1,15 @@
+package JavaProject.tour.car;
+
+public class RentCar {
+	
+	
+	
+	 setBounds(300,100,1300,500);
+     setVisible(true);
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

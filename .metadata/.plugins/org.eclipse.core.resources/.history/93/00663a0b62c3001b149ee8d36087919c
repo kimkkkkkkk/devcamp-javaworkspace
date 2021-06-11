@@ -1,0 +1,20 @@
+package app0602.cal.diary;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+//날짜 한개를 표현할 박스 (여기서 요일을 담당할 것임)
+public class DateBox extends JPanel{
+	public DateBox(Color color, int width, int heigth) {
+		setPreferredSize(new Dimension(width, heigth));
+		setBackground(color);
+	}
+	
+	public void paint(Graphics g) {
+		g.setColor(Color.GRAY);//배경색도 여기서 처리
+		g.drawString("Sun", 10, 10);
+	}
+}

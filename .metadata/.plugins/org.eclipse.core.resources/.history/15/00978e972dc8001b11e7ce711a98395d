@@ -1,0 +1,45 @@
+package JavaProject.tour.message;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class MessageBoard {
+	
+	JPanel p_text; // 제목 패널
+	JLabel text; //제목 패널
+	JPanel p_east; // 동쪽 패널
+	JLabel title; // 제목 라벨
+	JTextField t_title; // 제목 필드
+	JLabel writer; // 작성자 라벨
+	JTextField t_writer;// 작성자 필드
+	JLabel content;  //내용 라벨
+	JTextField t_content; // 내용 필드
+	JButton bt_regist; // 등록하기
+	
+	
+	public MessageBoard() {
+		
+		p_text = new JPanel();
+		text = new JLabel("REVIEW");
+		p_east = new JPanel();
+		title = new JLabel("제목");
+		t_title = new JTextField(25);
+		writer = new JLabel("작성자");
+		t_writer = new JTextField(25);
+		content = new JLabel("리뷰내용");
+		t_content = new JTextField(25);
+		bt_regist = new JButton("등록하기");
+		
+		
+		
+		
+	}
+
+	public static void main(String[] args) {
+		new MessageBoard();
+
+	}
+
+}

@@ -1,0 +1,25 @@
+package JavaProject.tour;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+import util.ImageManager;
+
+public class XCanvas extends JPanel{
+	Toolkit kit =Toolkit.getDefaultToolkit(); // 여기다가 선언한건 뭐죠? 멤버변수지만 인스턴스 변수
+																//kit이 초기화되는 시점, new 할때 멤버 변수들이 초기화 메모리 올라갈때마다
+																//값이 괄호 안에 들어간다.
+	ImageManager imageManager= new ImageManager();
+	Image bgImg;
+	
+ public XCanvas() {
+	 createBg();
+ }
+ public void createBg() {
+	 ImageIcon icon = imageManager.getScaledIcon("travel.jpg", WIDTH, HELGHT);
+	 bgImg = icon.getImage(); // 배경 이미지 얻기!
+}
+}

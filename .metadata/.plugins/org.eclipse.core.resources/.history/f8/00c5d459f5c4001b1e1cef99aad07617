@@ -1,0 +1,257 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.Image;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+
+//상품관리 메인 페이지
+public class RentCar extends JFrame{
+	
+	JPanel p_east,p_north;
+	Choice ch_top;
+	
+	//센터관련 
+
+	JPanel p_search; //검색 컴포넌트들 올려놓을 패널 
+	Choice ch_category;//검색 카테고리 선택
+	JTextField t_keyword;//검색어 입력
+	JButton bt_search; 
+	
+	
+	//동쪽관련
+	Choice car; //차량선택 
+	Choice option; //서비스 옵션
+	
+	JPanel empty;
+	JCheckBox[] ch_option; // 픽업옵션
+	JPanel empty2;
+	JCheckBox[] ch_option2; // 반납옵션
+	JPanel empty3;
+	//JLabel la_name; 
+	JTextField name;
+	//JLabel la_age; 
+	JTextField age;
+	//JLabel la_phone; 
+	JTextField phone;
+	
+	JPanel empty4;
+	JLabel driver;
+	
+	JPanel empty5;
+	JCheckBox[] ch_option3; // 운전면허증 여부
+	
+	JTextArea detail; //문의내용
+	JScrollPane scroll;
+	
+	
+	JPanel bt_empty;
+	JButton bt;
+	
+
+	public  RentCar() {
+		
+		//서쪽
+	
+		ch_top = new Choice(); //픽업
+		p_north= new JPanel();
+		
+		ch_top.add("----픽업장소-----");
+		ch_top.add("서울역");
+		ch_top.add("잠실역");
+		ch_top.add("김포공항");
+		ch_top.add("인천공항");
+		
+		
+		
+		//센터 영역 생성 
+		//p_center = new JPanel();
+		p_search = new JPanel();
+		ch_category = new Choice(); // 반납
+		
+		//검색 카테고리 등록
+		ch_category.add("----반납장소----");
+		ch_category.add("서울역");		
+		ch_category.add("김포공항");
+		ch_category.add("인천공항");
+		ch_category.add("잠실역");
+		
+		t_keyword = new JTextField();
+		bt_search = new JButton("search");
+	
+		
+		
+		
+		//동쪽 영역 생성 
+		p_east= new JPanel();
+		car = new Choice();
+		
+		car.add("---차량선택----");
+		car.add("경차");
+		car.add("중소형차");
+		car.add("중형차");
+		car.add("대형차");
+		car.add("suv");
+		car.add("스포츠카");
+		
+		option = new Choice();
+		
+		option.add("---서비스옵션----");
+		option.add("운전자 추가 무료");
+		option.add("무료 GPS");
+		option.add("주행거리 무제한");
+		option.add("가득 받고 가득채워서 반납");
+		option.add("무료 취소");
+		option.add("예약 즉시 확정");
+		
+		empty = new JPanel();
+		ch_option = new JCheckBox[3]; // 빈공간만 생성함
+		ch_option[0] = new JCheckBox("자동변속");
+		ch_option[1] = new JCheckBox("모델보장");
+		ch_option[2] = new JCheckBox("에어컨");
+		
+		empty2 = new JPanel();
+		ch_option2 = new JCheckBox[2]; // 빈공간만 생성함
+		ch_option2[0] = new JCheckBox("1-6석");
+		ch_option2[1] = new JCheckBox("7석 이상");
+		
+		empty3 = new JPanel();
+		
+		//la_name = new JLabel("이름");
+		name = new JTextField();
+		//la_age = new JLabel("나이");
+		age = new JTextField();
+		//la_phone = new JLabel("번호");
+		phone = new JTextField();
+		
+		empty4 = new JPanel();
+		driver =new JLabel("운전면허증 유무");
+		
+		empty5 = new JPanel();
+		ch_option3 = new JCheckBox[2]; // 빈공간만 생성함
+		ch_option3[0] = new JCheckBox("유");
+		ch_option3[1] = new JCheckBox("무");
+		
+		detail = new JTextArea();
+		scroll = new JScrollPane(detail);
+		
+		bt_empty = new JPanel();
+		bt = new JButton("결제하기");
+		
+		
+		
+		
+		//스타일 및 레이아웃 
+		setLayout(new BorderLayout());
+		
+		
+		//상단
+		p_north.setPreferredSize(new Dimension(100, 30));
+		ch_top.setPreferredSize(new Dimension(200,30));
+		
+		Dimension d = new Dimension(380,30); //공통 크기
+		ch_category.setPreferredSize(d);
+		car.setPreferredSize(d);
+		option.setPreferredSize(d);
+		
+		
+		//사용자정보
+		name.setPreferredSize(d);
+		age.setPreferredSize(d);
+		phone.setPreferredSize(d);
+		empty5.setPreferredSize(d);
+		detail.setPreferredSize(d);
+		
+		Dimension a = new Dimension(380,10);
+		empty3.setPreferredSize(a);
+		empty4.setPreferredSize(a);
+		
+		bt_empty.setPreferredSize(new Dimension(380, 10));
+		t_keyword.setPreferredSize(new Dimension(270, 30));
+		p_north.setLayout(new BorderLayout());
+
+		//동쪽관련
+		p_east.setPreferredSize(new Dimension(400, 500));
+		scroll.setPreferredSize(new Dimension(180, 180));
+		empty.setPreferredSize(new Dimension(280,30));
+		empty2.setPreferredSize(new Dimension(270,30));
+		driver.setPreferredSize(new Dimension(100,10));
+		
+		Dimension z= new Dimension(220,30);
+		//la_name.setPreferredSize(z);
+		//la_age.setPreferredSize(z);
+		//la_phone.setPreferredSize(z);
+		
+		
+		
+
+		p_north.add(ch_top);
+		p_north.add(p_search, BorderLayout.NORTH);//검색 패널을 북쪽에 부착!!
+		p_search.add(ch_category);
+		p_search.add(t_keyword);
+		p_search.add(bt_search);
+		//동쪽조립
+		
+		p_east.add(car);
+		p_east.add(option);
+		
+
+		p_east.add(empty);
+		for(int i=0;i<ch_option.length;i++) {
+			empty.add(ch_option[i]);
+		}
+		
+		p_east.add(empty2);
+		for(int i=0;i<ch_option2.length;i++) {
+			empty2.add(ch_option2[i]);
+		}
+		
+		p_east.add(empty3);
+		
+		p_east.add(name);
+		p_east.add(age);
+		p_east.add(phone);
+		//p_east.add(la_name);
+		//p_east.add(la_age);
+		//p_east.add(la_phone);
+		
+		
+		p_east.add(empty4);
+		p_east.add(driver);
+		
+		p_east.add(empty5);
+		for(int i=0;i<ch_option3.length;i++) {
+			empty5.add(ch_option3[i]);
+		}
+		
+		p_east.add(detail);
+		p_east.add(bt_empty);
+		p_east.add(bt);
+		add(p_north, BorderLayout.NORTH);//서쪽영역에 부착 )
+		add(p_east, BorderLayout.EAST);//동쪽영역에 부착 
+		//add(p_center);//센터영역에 부착 
+	
+		setBounds(300,100,1300,500);
+		setVisible(true);
+	}
+	
+	
+
+	public static void main(String[] args) {
+		new RentCar();
+	}
+	
+
+}

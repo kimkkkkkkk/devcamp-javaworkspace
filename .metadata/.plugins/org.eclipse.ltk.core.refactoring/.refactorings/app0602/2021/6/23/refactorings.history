@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;app0602/res/pet.json&apos; to &apos;specialday.json&apos;" description="Rename resource &apos;pet.json&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/pet.json" name="specialday.json" stamp="1622622890330" updateReferences="true"/>
+</session>

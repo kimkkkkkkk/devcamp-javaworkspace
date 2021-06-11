@@ -1,0 +1,9 @@
+package JavaProject.tour.car;
+
+public class CarMember {
+
+	   private String hotelName;
+	   private String area;
+	   private String hotelType;
+	   private int price;
+}

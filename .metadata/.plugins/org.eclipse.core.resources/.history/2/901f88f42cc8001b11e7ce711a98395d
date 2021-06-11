@@ -1,0 +1,36 @@
+package JavaProject.tour.message;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class MessageBoard {
+	
+	JPanel p_text;
+	JLabel text;
+	JPanel p_east;
+	JLabel title;
+	JTextField t_title;
+	JLabel writer;
+	JTextField t_writer;
+	JLabel content;
+	JTextField t_content;
+	JButton bt_regist;
+	
+	
+	public MessageBoard() {
+		
+
+		
+		
+		
+		
+	}
+
+	public static void main(String[] args) {
+		new MessageBoard();
+
+	}
+
+}

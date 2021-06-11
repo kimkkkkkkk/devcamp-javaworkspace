@@ -1,0 +1,10 @@
+package app0602.cal.basic;
+
+public class CalendarTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

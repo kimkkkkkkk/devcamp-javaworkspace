@@ -1,0 +1,51 @@
+package io.charstream;
+
+import java.awt.BorderLayout;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
+//메모장 편집기의 기능 중 읽기 기능만을 구현해보자
+public class MemoBasic extends JFrame implements ActionListener{
+	JButton bt;
+	TextArea area;
+	JScrollPane scroll;
+	JFileChooser chooser;
+	
+	public MemoBasic() {
+		//생성
+		bt= new JButton("Load");
+		area = new TextArea();
+		scroll = new JScrollPane(area);
+		chooser = new JFileChooser();
+		
+		//조립
+		add(bt,BorderLayout.NORTH);
+		add(scroll);
+		
+		bt.addActionListener(this);
+		
+		setBounds(400, 100, 500, 600);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	public void openFile() {
+		if(chooser.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
+			File file = chooser.getSelectedFile(); // 선택한 파일 열기
+			System.out.println(file.getAbsolutePath());
+		}
+	}
+	public void actionPerformed(ActionEvent e) {
+		openFile();
+	}
+	
+	public static void main(String[] args) {
+		new MemoBasic();
+	}
+}

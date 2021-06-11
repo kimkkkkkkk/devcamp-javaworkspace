@@ -1,0 +1,48 @@
+package app0528.json.world;
+
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class WorldJson extends JFrame{
+	JButton bt;
+	JPanel p_south;
+	Canvas can;
+	JScrollPane scroll;
+	
+	public WorldJson() {
+		
+		//생성
+		bt = new JButton("Load");
+		p_south = new JPanel();
+		can = new Canvas(){
+			
+		};
+		scroll = new JScrollPane();
+		
+		//스타일
+		bt.setPreferredSize(new Dimension(200,25));
+		p_south.setPreferredSize(new Dimension(250,600));
+		can.setPreferredSize(new Dimension(200,500));
+		
+		//조립
+		add(scroll);
+		p_south.add(can);
+		p_south.add(bt);
+		add(p_south, BorderLayout.SOUTH);
+		
+		setBounds(400,0,300,600);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+	public static void main(String[] args) {
+		new WorldJson();
+	}
+
+}

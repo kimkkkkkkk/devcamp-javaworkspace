@@ -1,0 +1,121 @@
+package JavaProject.tour.imagetest;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+
+import JavaProject.tour.TourApp;
+import JavaProject.tour.hotel.HotelMain;
+import JavaProject.tour.imagetest.back.ShowAction;
+ 
+public class TextText extends JFrame{
+	
+	 	JMenuBar bar;
+		JMenu[] menu;
+		String[] menu_title= {"place","room","transport","community"};
+		JMenuItem[][] itemArray;
+		String[][] item_title={{"intro","food"},{"hotel","others"},{"rentcar","subway"},{"chat","customer"}};
+		ShowAction showaction;
+		
+		
+	public TextText() {
+		JFrame frm = new JFrame("프로의 BLOG"); 
+		frm.setBounds(120, 120, 1300, 500); //GUI의 위치와 사이즈 설정
+	    frm.setLayout(new BorderLayout()); //BorderLayout은 동, 서, 남, 북으로 나뉘어 있는 레이아웃.
+	    JLabel label = new JLabel("<HTML><body style='text-align:center;'>YOURS TO EXPLORE <br><br>더 넓은 세상을 경험하고, 잊지 못할 순간을 예약하세요</body></HTML>"); //텍스트를 보여줄 JLabel 생성
+		
+	    
+	    
+	    bar=new JMenuBar();
+		menu=new JMenu[4];
+		itemArray=new JMenuItem[4][2];
+   
+		for(int i=0;i<menu_title.length;i++) {
+			menu[i]=new JMenu(menu_title[i]);
+			bar.add(menu[i]);
+		}
+		
+		for(int a=0;a<item_title.length;a++) {
+			for(int j=0;j<item_title[a].length;j++) {
+				
+				itemArray[a][j]=new JMenuItem(item_title[a][j]);
+				menu[a].add(itemArray[a][j]);
+				itemArray[a][j].addActionListener(new ShowAction());	
+		}
+		}
+		setJMenuBar(bar); //프레임에 메뉴 부착!!
+	    
+	    
+	    
+	   
+		label.setHorizontalAlignment(JLabel.CENTER); //JLabel 가운데 정렬
+	       //JLabel 가운데 정렬
+	        //label.setHorizontalAlignment(JLabel.RIGHT);
+	        
+
+
+	    frm.add(label);
+	   
+	    frm.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //X버튼 누를시 종료
+	    frm.setVisible(true); //프레임 보여주기
+		
+	}
+	class ShowAction implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+
+					String cmd=e.getActionCommand();
+					switch(cmd) {
+					case "intro":
+						new TourApp();
+						break;
+					case "food":
+						new TourApp();
+						break;
+					case "hotel":
+						new HotelMain();
+						break;
+					case "others":
+						new TourApp();
+						break;
+					case "rentcar":
+						new TourApp();
+						break;
+					case "subway":
+						new TourApp();
+						break;
+					case "chat":
+						new TourApp();
+						break;
+					case "customer":
+						new TourApp();
+						break;
+					}
+		}
+	}
+	
+    public static void main(String[] args) {
+
+       new TextText();
+        
+        
+      
+        
+ 
+
+
+		
+        
+        //JLabel label2 = new JLabel(""); //텍스트를 보여줄 JLabel 생성
+     
+    }
+ 
+}

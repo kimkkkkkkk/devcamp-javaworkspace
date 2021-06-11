@@ -1,0 +1,25 @@
+package app0531;
+
+import java.util.Vector;
+
+import javax.swing.table.AbstractTableModel;
+
+//Member 테이블의 전용 TableModel (데이터를 연동하는 모델 객체)
+public class MemberModel extends AbstractTableModel{
+	Vector<> data = new Vector<>();
+	Vector<String> column = new Vector<String>();
+	
+	public int getRowCount() {
+		return 0;
+	}
+
+	public int getColumnCount() {
+
+		return 0;
+	}
+
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		return null;
+	}
+	
+}

@@ -1,0 +1,169 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.Image;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+
+//상품관리 메인 페이지
+public class RentCar extends JFrame{
+	JPanel p_west;
+	Choice ch_top;
+	//센터관련 
+	JPanel p_center;
+	JPanel p_search; //검색 컴포넌트들 올려놓을 패널 
+	JLabel category;
+	Choice ch_category;//검색 카테고리 선택
+	JTextField t_keyword;//검색어 입력
+	JButton bt_search; 
+	JButton bt_excel; // 엑셀을 이용한 일괄등록 
+	
+
+	
+	//동쪽관련
+	JPanel p_east;
+	JLabel la_top;
+	Choice top;
+	JLabel la_sub;
+	Choice sub;
+	JTextField t_product_name2;
+	JTextField t_price2;
+	JTextField t_brand2;
+	//JTextArea t_detail2; //문의내용
+	//JScrollPane scroll2;
+	
+	//JButton bt_file2; //로컬 파일에서 가져오기
+	
+	JButton bt_del;
+	
+	
+	
+	
+	
+
+	
+	
+	public  RentCar() {
+		
+		//서쪽
+		ch_top = new Choice();
+		p_west= new JPanel();
+		
+		ch_top.add("차량선택");
+		ch_top.add("경차");
+		ch_top.add("중소형차");
+		ch_top.add("중형차");
+		ch_top.add("대형차");
+		ch_top.add("suv");
+		ch_top.add("스포츠카");
+		
+		
+		//센터 영역 생성 
+		p_center = new JPanel();
+		p_search = new JPanel();
+		category = new JLabel("픽업장소");
+		ch_category = new Choice();
+		
+		//검색 카테고리 등록
+		ch_category.add("서울역");
+		ch_category.add("김포공항");
+		ch_category.add("인천공항");
+		ch_category.add("잠실역");
+		
+		t_keyword = new JTextField();
+		bt_search = new JButton("search");
+	
+		
+		
+		
+		//동쪽 영역 생성 
+		p_east= new JPanel();
+		top = new Choice();
+		sub = new Choice();
+		t_product_name2 = new JTextField();
+		t_price2 = new JTextField();
+		t_brand2 = new JTextField();
+		//t_detail2 = new JTextArea();
+		//scroll2 = new JScrollPane(t_detail2);
+		
+		//bt_file2 = new JButton("파일찾기");
+		
+		
+		bt_del = new JButton("상품삭제");
+		
+		
+		
+		
+		//스타일 및 레이아웃 
+		setLayout(new BorderLayout());
+		
+		Dimension d = new Dimension(220,30); //공통 크기
+		//서쪽 관련
+		p_west.setPreferredSize(new Dimension(300, 30));
+		ch_top.setPreferredSize(new Dimension(200,30));
+		p_west.add(ch_top);
+		
+		//센터관련 
+		category.setPreferredSize(new Dimension(100,30));
+		ch_category.setPreferredSize(d);
+		t_keyword.setPreferredSize(new Dimension(200, 30));
+		p_search.add(ch_category);
+		p_search.add(t_keyword);
+		p_search.add(bt_search);
+		p_search.add(bt_excel);
+		p_center.setLayout(new BorderLayout());
+		p_center.add(p_search, BorderLayout.NORTH);//검색 패널을 북쪽에 부착!!
+
+		
+		//동쪽관련
+		p_east.setPreferredSize(new Dimension(300, 500));
+		//scroll2.setPreferredSize(new Dimension(180, 180));
+		top.setPreferredSize(d);
+		sub.setPreferredSize(d);
+		t_product_name2.setPreferredSize(d);
+		t_price2.setPreferredSize(d);
+		t_brand2.setPreferredSize(d);
+	
+		
+		//서쪽조립 
+		
+		//동쪽조립
+		
+		p_east.add(top);
+		p_east.add(sub);
+		p_east.add(t_product_name2);
+		p_east.add(t_price2);
+		p_east.add(t_brand2);
+		//p_east.add(scroll2);
+		
+	
+		p_east.add(bt_del);
+		
+		add(p_west, BorderLayout.WEST);//서쪽영역에 부착 )
+		
+		add(p_east, BorderLayout.EAST);//동쪽영역에 부착 
+		add(p_center);//센터영역에 부착 
+	
+		setBounds(300,100,1300,500);
+		setVisible(true);
+	}
+	
+	
+
+	public static void main(String[] args) {
+		new RentCar();
+	}
+	
+
+}

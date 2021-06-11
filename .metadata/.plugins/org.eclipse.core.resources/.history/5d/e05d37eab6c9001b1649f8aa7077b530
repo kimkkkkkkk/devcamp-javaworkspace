@@ -1,0 +1,157 @@
+package JavaProject.tour;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import JavaProject.tour.chat.MainChat;
+import JavaProject.tour.consult.ConsultClient;
+import JavaProject.tour.consult.MemberConsult;
+import JavaProject.tour.hotel.HotelMain;
+import JavaProject.tour.message.Message;
+import JavaProject.tour.message.MessageApp;
+import JavaProject.tour.message.MessageModel;
+import JavaProject.tour.rentcar.CarMain;
+
+public class Intro extends JFrame{
+   
+   JPanel p_north;
+   JPanel p_center;
+   
+   JScrollPane scroll;
+   
+   
+   JButton hotelButton;
+   JButton rentButton;
+   JButton chatConsult;   
+   
+   JLabel reviewTitle;
+   JTable table; 
+
+   TourApp tourApp;
+   HotelMain hotelmain;
+   CarMain carmain;
+   MainChat mainchat;
+   MessageModel messagemodel = new MessageModel();
+   DBManager dbmanager = new DBManager();
+   ConsultClient consultclient;
+   MemberConsult memberconsult;
+   public Intro(TourApp tourApp) {
+      this.tourApp = tourApp;
+      
+      p_north = new JPanel();
+      p_center = new JPanel();
+      
+
+      scroll = new JScrollPane();
+      
+      hotelButton = new JButton("hotel");
+      rentButton = new JButton("rentcar");
+      chatConsult = new JButton("채팅 상담");
+      
+      reviewTitle = new JLabel();
+      reviewTitle.setText("리뷰 목록");
+      table = new JTable();
+      
+      
+      p_north.add(hotelButton);
+      p_north.add(rentButton);
+      p_north.add(chatConsult);
+      
+      p_center.add(reviewTitle);
+      p_center.add(table);
+      
+      
+      add(scroll);
+      
+      setLayout(new BorderLayout());
+      add(p_north, BorderLayout.NORTH);
+      add(p_center, BorderLayout.CENTER);
+      
+      
+      //리스너
+      hotelButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            new HotelMain(tourApp);
+         }
+      });
+      rentButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            new CarMain(tourApp);
+         }
+      });
+      chatConsult.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            new ConsultClient(memberconsult);
+         }
+      });
+
+      setVisible(true);
+      
+      setBounds(400,200,1000,400);
+      
+      new MessageApp(tourApp).getList();
+   }
+
+   public void getList() {
+         String sql="select * from message order by message_id desc";
+         PreparedStatement pstmt=null;
+         ResultSet rs=null;
+         ResultSetMetaData meta; //컬럼 정보 등을 가져오기 위한 객체
+         messagemodel = new MessageModel();
+         Connection con=dbmanager.getConnection();
+         
+         try {
+            pstmt=con.prepareStatement(sql);
+            rs=pstmt.executeQuery(); 
+            meta = rs.getMetaData();
+            
+            
+            int col_count = meta.getColumnCount(); 
+            
+            for(int i=1;i<=col_count;i++) {
+               String name=meta.getColumnName(i);
+               System.out.println(name);
+               //messagemodel.column.add(name); 
+            }
+            
+            while(rs.next()) {
+               Message message = new Message();
+               
+             //  message.setMessage_id(rs.getInt("message_id"));
+               message.setTitle(rs.getString("title"));
+               message.setWriter(rs.getString("writer"));
+               message.setContent(rs.getString("content"));
+               message.setRegdate(rs.getString("regdate"));
+               message.setHit(rs.getInt("hit"));
+               
+
+             //  messagemodel.data.add(message);//한건의 레코드를 담은 VO를 백터에 추가하자
+            }
+            //Model에 들어있는 메서드들은, Table에 해당 모데 적용시점에 호출되는 것을 알 수 있다.
+            //이때 JTable 원하는 정보를 모델로부터 얻어간다!
+            table.setModel(messagemodel); // JTable의 생성자에서 모델을 결정하는게 아니라, 생성된 모델중 원하는 모델을
+                                     // 테이블에 적용시키고 싶을때
+          //  updateList(); 
+            table.updateUI();
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }finally {
+            dbmanager.release(con,pstmt,rs);
+         }
+         
+      }
+      
+
+}

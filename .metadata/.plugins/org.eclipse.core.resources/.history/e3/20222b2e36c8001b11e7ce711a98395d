@@ -1,0 +1,182 @@
+package JavaProject.tour.message;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+
+import JavaProject.tour.DBManager;
+import JavaProject.tour.car.CarData;
+import JavaProject.tour.car.CarDetail;
+
+public class MessageApp extends JFrame{
+		JPanel p_east,p_westm,p_center;
+
+	   JPanel la_panel; 
+	   JLabel la_text;
+	   
+	   JTable table; // 테이블 나올 곳
+	   JScrollPane t_scroll;
+
+	   //동쪽
+	
+	   JPanel empty; // 띄어쓰기
+	   JLabel t_text;
+	   
+	   JPanel empty3;
+	   JLabel la_title; //제목
+	   JTextField title;
+	   JLabel la_writer; //작성자
+	   JTextField writer;
+	   JPanel empty4;
+
+	   JTextArea content; //문의내용
+	   JScrollPane scroll;
+	   JPanel bt_empty;
+	   JButton bt_regist;
+	   JButton bt_charge;
+	   
+	   
+	   String[] columnName = { "ID", "title", "writer", "content" , "regdate", "hit"};
+	   String[][] rows = {};
+	   
+	   DBManager dbmanager=new DBManager();
+	   Connection con=dbmanager.getConnection();
+
+	   public MessageApp() {
+		  
+	   
+		  //상단바 & 테이블
+	      p_center= new JPanel();
+	      la_panel = new JPanel(); //검색패널
+
+	      table = new JTable(new AbstractTableModel() {
+
+			// 총 레코드 수를 반환하는 메서드 그리고 이 메서드는 JTable이 호출하는 것이다!!
+			public int getRowCount() {
+				return rows.length;
+			}
+
+			// 총 컬럼수를 반환하는 메서드, 그리고 이 메서드 또한 JTable이 호출하는 거다!!
+			public int getColumnCount() {
+				return columnName.length;
+			}
+
+			public String getColumnName(int col) { // col 변수에 호출시마다 1씩 증가시키며 호출 0,1,2,3,4
+				return columnName[col];
+			}
+
+			
+			public Object getValueAt(int row, int col) {
+				
+				return rows[row][col];
+			}
+		});
+		
+			
+	      t_scroll=new JScrollPane(table);
+	      la_text= new JLabel("Review content"); //검색창
+	      
+	   
+	      //동쪽 영역 (차량정보 등)
+	      p_east= new JPanel();
+	      empty = new JPanel();
+	      t_text = new JLabel("리뷰를 등록해주세요");
+
+	      empty3 = new JPanel();
+	      la_title = new JLabel("제목");
+	      title = new JTextField(25);
+	      la_writer= new JLabel("작성자");
+	      writer = new JTextField(25);
+
+	      //요청사항
+	      empty4 = new JPanel();
+	      content = new JTextArea("--내용을 입력하세요--");
+	      scroll = new JScrollPane(content);
+
+	      bt_empty = new JPanel();
+	      bt_regist = new JButton("등록하기");
+	      bt_charge = new JButton("게시판 목록");
+	      
+	      //스타일 및 레이아웃 
+	      
+	      la_title.setFont(new Font("Vredana", Font.BOLD, 25));
+	      setLayout(new BorderLayout());
+	      t_scroll.setPreferredSize(new Dimension(790,400));
+	      
+	      //상단
+	      p_center.setPreferredSize(new Dimension(30, 30));
+	      content.setPreferredSize(new Dimension(380, 80));
+	      
+	      //정보
+	      p_east.setLayout(new FlowLayout());
+	      p_east.setPreferredSize(new Dimension(400, 500));
+
+	      
+	      //예약정보 글씨
+	      t_text.setFont(new Font("Serif", Font.BOLD, 25));
+	      scroll.setPreferredSize(new Dimension(180, 180));
+	      empty.setPreferredSize(new Dimension(70,100));
+
+	      bt_empty.setPreferredSize(new Dimension(380, 4));
+	      la_title.setPreferredSize(new Dimension(300, 30));
+	      p_center.setLayout(new FlowLayout());
+	      
+	      Dimension a = new Dimension(380,7);
+	      empty3.setPreferredSize(a);
+	      empty4.setPreferredSize(a);
+	      
+	      
+	      Dimension z= new Dimension(120,30);
+	      la_title.setPreferredSize(z);
+	      la_writer.setPreferredSize(z);
+;
+	      
+	      Dimension e= new Dimension(200,30);
+	      title.setPreferredSize(e);
+	      writer.setPreferredSize(e);
+
+	      p_center.add(la_panel);
+	      la_panel.add(la_text);
+	      p_center.add(t_scroll);
+	      p_east.add(empty);
+	      p_east.add(t_text);
+	      p_east.add(empty3);
+	      p_east.add(la_title);
+	      p_east.add(title);
+	      p_east.add(la_writer);
+	      p_east.add(writer);
+	      p_east.add(empty4);
+	      p_east.add(content);
+	      p_east.add(bt_empty);
+	      p_east.add(bt_regist);
+	      p_east.add(bt_charge);
+	      
+	      
+	      add(p_center, BorderLayout.NORTH);
+	      add(p_east, BorderLayout.EAST);
+	      add(p_center);
+	      
+	      setBounds(300,100,1300,500);
+	      setVisible(true);
+	      setDefaultCloseOperation(EXIT_ON_CLOSE);
+	   
+	    }
+	   public static void main(String[] args) {
+		   new MessageApp();
+	}
+	  }
+

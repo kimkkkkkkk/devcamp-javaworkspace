@@ -1,0 +1,94 @@
+package JavaProject.tour.car;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class RentCar extends JFrame{
+	JPanel r_title;
+	JLabel re_title;
+	
+	JPanel c_city;
+	JLabel c_selected;
+	Choice city;
+	
+	JPanel p_pick;
+	JLabel pick_up;
+	Choice pick;
+	
+	public RentCar() {
+		
+		//생성
+		r_title = new JPanel();
+		re_title = new JLabel("렌터카 예매");
+	
+		c_city = new JPanel();
+		c_selected = new JLabel("도시");
+		city = new Choice();
+
+		city.add("서울");
+		city.add("경기");
+		city.add("부산");
+		city.add("제주");
+		city.add("인천");
+		
+		p_pick = new JPanel();
+		pick_up = new JLabel("픽업");
+		pick = new Choice();
+
+		pick.add("서울");
+		pick.add("경기");
+		pick.add("부산");
+		pick.add("제주");
+		pick.add("인천");
+
+		
+		//스타일
+		
+		setLayout(new FlowLayout());
+		re_title.setFont(new Font("돋움", Font.BOLD,24));
+		r_title.setPreferredSize(new Dimension(450, 50));
+		
+		c_selected.setPreferredSize(new Dimension(30,30));
+		city.setPreferredSize(new Dimension(50, 30));
+		
+		pick_up.setPreferredSize(new Dimension(30,30));
+		pick.setPreferredSize(new Dimension(50, 30));
+		
+		//조립
+		r_title.add(re_title);
+		add(r_title);
+		c_city.add(c_selected);
+		c_city.add(city);
+		add(c_city);
+		
+		
+		p_pick.add(pick_up);
+		p_pick.add(pick);
+		add(pick_up);
+		
+
+
+		
+		
+		setBounds(300,100,1300,500);
+	    setVisible(true);
+		
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		new RentCar();
+
+	}
+
+}

@@ -1,0 +1,96 @@
+package JavaProject.tour.car;
+
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class RentCar2 extends JFrame{
+	JPanel r_title;
+	JLabel re_title;
+
+	
+	JPanel p_mail;
+	//JTextField t_mailId;
+	JLabel la_at;
+	Choice ch_server;
+	
+	
+	
+	public RentCar2() {
+		//생성
+		r_title = new JPanel();
+		re_title = new JLabel("렌터카 예매");
+		
+		
+		
+		p_mail = new JPanel();
+		//t_mailId = new JTextField();
+		la_at = new JLabel("도시");
+		ch_server = new Choice();
+		
+		ch_server.add("gmail.com");
+		ch_server.add("naver.com");
+		ch_server.add("daum.net");
+		ch_server.add("direct insert");
+		
+		//메일 수신여부 생성
+		
+		
+		
+		//스타일, 레이아웃
+		setLayout(new FlowLayout());
+		re_title.setFont(new Font("돋움", Font.BOLD,24));
+		r_title.setPreferredSize(new Dimension(450, 50));
+		
+		Dimension d= new Dimension(100, 30);
+	
+		la_at.setPreferredSize(new Dimension(30,30));
+		ch_server.setPreferredSize(new Dimension(150, 30));
+		
+		
+		
+		
+		//조립
+		r_title.add(re_title); // 패널에 제목 올려놓기!
+		add(r_title); // 윈도우에 제목 패널 부착
+	
+		//메일 조립
+		//p_mail.add(t_mailId);
+		p_mail.add(la_at);
+		p_mail.add(ch_server);
+		add(p_mail);
+		
+	
+		
+		//이벤트 소스와 리스너 연결
+		
+		
+		//보여주기(화면 중앙으로 오게), 많이 쓰이지는 않음
+		setBounds(300,100,1300,500);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
+	}
+	
+	
+
+	public static void main(String[] args) {
+		new RentCar2();
+	}
+	
+
+}

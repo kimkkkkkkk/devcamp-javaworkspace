@@ -1,0 +1,158 @@
+package JavaProject.tour.hotel;
+
+import java.awt.BorderLayout;
+import java.awt.Choice;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+public class HotelMain extends JFrame{
+   JPanel p_north,p_east;
+   Choice ch_area;
+   Choice ch_hotel;
+   JTextField t_hotelName;
+   JButton bt_search;
+   
+   JTable table;
+   JScrollPane scroll;
+   
+   JLabel la_hotel;//이름
+   JTextField t_hotel;
+   JLabel la_area;//지역
+   JTextField t_area;
+   JLabel la_type;//종류
+   JTextField t_type;
+   JLabel la_price;//가격
+   JTextField t_price;
+   JLabel la_reserveSt;//예약 시작일
+   JTextField t_reserveSt;
+   JLabel la_reserveEnd;//예약 종료일
+   JTextField t_reserveEnd;
+   JButton bt_reservation;//예약하기
+   JButton bt_resCalendar;//예약설정
+   
+   String[] areaArray= {"서울","경기","충청도","전라도","강원도","경상도","제주도"};
+   String[] hotelArray= {"호텔","모텔","펜션"};
+   
+   public HotelMain() {
+      //생성
+      p_north=new JPanel();
+      ch_area=new Choice();
+      ch_hotel=new Choice();
+      t_hotelName=new JTextField(25);
+      bt_search=new JButton("검색");
+      
+      //센터
+      table=new JTable();
+      scroll=new JScrollPane(table);
+      
+      p_east=new JPanel();
+      la_hotel=new JLabel("숙소이름");
+      t_hotel=new JTextField();
+      la_area=new JLabel("지역");
+      t_area=new JTextField();
+      la_type=new JLabel("숙박종류");
+      t_type=new JTextField();
+      la_price=new JLabel("가격");
+      t_price=new JTextField();
+      la_reserveSt=new JLabel("예약시작일");
+      t_reserveSt=new JTextField();
+      la_reserveEnd=new JLabel("예약종료일");
+      t_reserveEnd=new JTextField();
+      bt_reservation=new JButton("예약하기");
+      bt_resCalendar=new JButton("예약일성정");
+      
+      //스타일 
+      scroll.setPreferredSize(new Dimension(800,400));
+      p_east.setLayout(new FlowLayout());
+      p_east.setPreferredSize(new Dimension(500,400));
+      
+      Dimension d=new Dimension(400,30);
+      t_hotel.setPreferredSize(d);
+      t_area.setPreferredSize(d);
+      t_type.setPreferredSize(d);
+      t_price.setPreferredSize(d);
+      t_reserveSt.setPreferredSize(d);
+      t_reserveEnd.setPreferredSize(d);
+      
+      Dimension a=new Dimension(80,30);
+      la_hotel.setPreferredSize(a);
+      la_area.setPreferredSize(a);
+      la_type.setPreferredSize(a);
+      la_price.setPreferredSize(a);
+      la_reserveSt.setPreferredSize(a);
+      la_reserveEnd.setPreferredSize(a);
+      
+      
+      //조립
+      p_north.add(ch_area);
+      p_north.add(ch_hotel);
+      p_north.add(t_hotelName);
+      p_north.add(bt_search);
+      add(p_north,BorderLayout.NORTH);
+      for(int i=0;i<areaArray.length;i++) {
+         ch_area.add(areaArray[i]);
+      }
+      for(int i=0;i<hotelArray.length;i++) {
+         ch_hotel.add(hotelArray[i]);
+      }
+      
+      
+      add(scroll);
+      p_east.add(la_hotel);
+      p_east.add(t_hotel);
+      p_east.add(la_area);
+      p_east.add(t_area);
+      p_east.add(la_type);
+      p_east.add(t_type);
+      p_east.add(la_price);
+      p_east.add(t_price);
+      p_east.add(la_reserveSt);
+      p_east.add(t_reserveSt);
+      p_east.add(la_reserveEnd);
+      p_east.add(t_reserveEnd);
+      p_east.add(bt_resCalendar);
+      p_east.add(bt_reservation);
+      add(p_east,BorderLayout.EAST);
+      
+      //리스너
+      //검색
+      bt_search.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            
+         }
+      });
+      //달력생성
+      bt_resCalendar.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            
+         }
+      });
+      //예약하기
+      bt_reservation.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+
+         }
+      });
+      
+      
+      
+      
+      setBounds(300,100,1300,500);
+      setVisible(true);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+   }
+   public static void main(String[] args) {
+      new HotelMain();
+   }
+   
+}

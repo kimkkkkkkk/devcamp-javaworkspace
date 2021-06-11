@@ -1,0 +1,10 @@
+package app0531.xml;
+
+public class XMLBasic1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

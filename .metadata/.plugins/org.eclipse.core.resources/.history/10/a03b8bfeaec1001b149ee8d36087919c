@@ -1,0 +1,7 @@
+package app0531;
+
+//notice 게시판 전용 TableModel
+public class NoticeModel {
+
+	
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="NodeList/MySQLCatalog">
+		<column name="Schema Name" visible="true" order="0" width="119"/>
+		<column name="Default Charset" visible="true" order="1" width="120"/>
+		<column name="Default Collation" visible="true" order="2" width="131"/>
+		<column name="SQL Path" visible="true" order="3" width="77"/>
+		<column name="Database size" visible="true" order="4" width="107"/>
+	</item>
+	<item id="NodeList/MySQLTable">
+		<column name="테이블명" visible="true" order="0" width="100"/>
+		<column name="Engine" visible="true" order="1" width="100"/>
+		<column name="Auto Increment" visible="true" order="2" width="120"/>
+		<column name="Data Length" visible="true" order="3" width="100"/>
+		<column name="Description" visible="true" order="4" width="100"/>
+	</item>
+	<item id="NodeList/MySQLTableColumn">
+		<column name="컬럼명" visible="true" order="0" width="101"/>
+		<column name="#" visible="true" order="1" width="33"/>
+		<column name="Data Type" visible="true" order="2" width="89"/>
+		<column name="Not Null" visible="true" order="3" width="72"/>
+		<column name="Auto Increment" visible="true" order="4" width="120"/>
+		<column name="Key" visible="true" order="5" width="38"/>
+		<column name="디폴트" visible="true" order="6" width="169"/>
+		<column name="Extra" visible="true" order="7" width="119"/>
+		<column name="Expression" visible="true" order="8" width="85"/>
+		<column name="Comment" visible="true" order="9" width="81"/>
+	</item>
+	<item id="scriptSelectorViewer">
+		<column name="Script" visible="true" order="0" width="130"/>
+		<column name="Time" visible="true" order="1" width="171"/>
+		<column name="Info" visible="true" order="2" width="1600"/>
+	</item>
+</items>

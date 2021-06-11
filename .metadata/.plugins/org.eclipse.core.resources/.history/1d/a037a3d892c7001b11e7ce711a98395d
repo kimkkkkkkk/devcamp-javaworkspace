@@ -1,0 +1,65 @@
+package JavaProject.tour.imagetest;
+
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.ScrollPane;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class imagedDraw extends JFrame{
+	
+	JScrollPane scrollPane;
+	ImageIcon i = new ImageIcon("C:\\korea202102_javaworkspace\\javaproject\\res\\airplan.jpg");
+    Image im=i.getImage();
+    //JPanel p_center;
+    JButton list;
+	JButton logout;
+    
+    public imagedDraw() {
+	
+        this.setTitle("이미지 그리기 연습");
+        
+        MyPanel panel = new MyPanel();
+        panel.setLayout(new FlowLayout());
+        
+        scrollPane = new JScrollPane(panel);
+      
+       // p_center = new JPanel();
+        list = new JButton("hello"); 
+        logout = new JButton(); 
+      //  panel.add(new JButton("Hello"));
+      // panel.add(new JButton("hi"));
+      //  panel.add(new JButton("ya"));
+        
+        
+        panel.add(list);
+       // p_center.add(logout);
+        this.add(panel);
+        this.setSize(1300,500);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setContentPane(scrollPane);
+       
+    }
+    
+    
+    class MyPanel extends JPanel{
+            
+        public void paintComponent(Graphics g){
+            //super.paintComponent(g);
+            g.drawImage(im,0,0,getWidth(),getHeight(),this);
+        }
+    }
+
+
+
+	public static void main(String[] args) {
+		
+		new imagedDraw();
+	}
+}

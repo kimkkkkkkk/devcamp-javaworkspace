@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;app0601/src/app0601.json.chat&apos;&#x0D;&#x0A;- Original project: &apos;app0527&apos;&#x0D;&#x0A;- Destination element: &apos;app0601/src/app0601.json.chat&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     gui.backup.ChatServer.java&#x0D;&#x0A;     gui.backup.ChatClient.java" description="Copy compilation units" destination="=app0601/src&lt;app0601.json.chat" element1="/src&lt;gui.backup{ChatServer.java" element2="/src&lt;gui.backup{ChatClient.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1622524193945" units="2" version="1.0"/>
+</session>

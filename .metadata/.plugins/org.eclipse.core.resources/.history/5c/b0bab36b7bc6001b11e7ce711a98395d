@@ -1,0 +1,5 @@
+package JavaProject.tour.car.domain;
+
+public class car_data {
+
+}

@@ -1,0 +1,98 @@
+package JavaProject.tour.imagetest;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.ScrollPane;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class imagedDraw extends JFrame{
+	
+	JScrollPane scrollPane;
+	ImageIcon i = new ImageIcon("C:\\korea202102_javaworkspace\\javaproject\\res\\1.jpg");
+    Image im=i.getImage();
+    //JPanel p_center;
+    JButton list;
+	JButton logout;
+	JPanel p_north;
+    
+    public imagedDraw() {
+    	 //JFrame frm = new JFrame("프로의 BLOG"); 
+        this.setTitle("이미지 그리기 연습");
+        
+        JPanel p_north = new JPanel();
+        list = new JButton("intro");
+        logout = new JButton("logout");
+        
+  
+        
+        MyPanel panel = new MyPanel();
+
+        panel.setLayout(new BorderLayout());
+        //panel.setPreferredSize(new Dimension(200,100));
+        p_north.add(panel);
+        
+        add(p_north, BorderLayout.SOUTH);
+        
+        p_north.add(list);
+        p_north.add(logout);
+        
+       scrollPane = new JScrollPane(panel);
+
+		//frm.setBounds(120, 120, 1300, 500); //GUI의 위치와 사이즈 설정
+	   // frm.setLayout(new BorderLayout()); //BorderLayout은 동, 서, 남, 북으로 나뉘어 있는 레이아웃.
+	    JLabel label = new JLabel("<HTML><body style='text-align:center;'>YOURS TO EXPLORE <br><br>더 넓은 세상을 경험하고, 잊지 못할 순간을 예약하세요</body></HTML>");
+        //JButton bt1 = new JButton("<HTML><body style='text-align:center;'></body></HTML>");
+	    label.setFont(new Font("Serif", Font.BOLD, 20));
+	    label.setForeground(Color.WHITE);
+	    label.setHorizontalAlignment(JLabel.CENTER); //JLabel 가운데 정렬
+	       //JLabel 가운데 정렬
+	        //label.setHorizontalAlignment(JLabel.RIGHT);
+	        
+	    panel.add(label);
+	    
+	   
+       // p_center = new JPanel();
+
+       //panel.add(new JButton("Hello"));
+      // panel.add(new JButton("hi"));
+      //panel.add(new JButton("ya"));
+        
+ 
+       
+	    
+        this.add(panel);
+        setSize(1300,500);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
+       // setContentPane(scrollPane);
+       
+    }
+    
+    
+    class MyPanel extends JPanel{
+            
+        public void paintComponent(Graphics g){
+            //super.paintComponent(g);
+            g.drawImage(im,0,0,getWidth(),getHeight(),this);
+        }
+    }
+
+
+
+	public static void main(String[] args) {
+		
+		new imagedDraw();
+	}
+}

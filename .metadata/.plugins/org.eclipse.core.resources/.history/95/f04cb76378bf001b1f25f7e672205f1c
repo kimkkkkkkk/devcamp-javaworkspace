@@ -1,0 +1,10 @@
+package app0528.json.marvel;
+
+public class MarvelApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
